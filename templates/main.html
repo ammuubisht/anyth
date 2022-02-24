@@ -1,0 +1,41 @@
+{% load static %}   
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no">
+    <link rel='stylesheet' href="{% static 'styles/homepage.css'%}">
+    <link rel='stylesheet' href="{% static 'styles/navbar.css'%}">
+    <link rel='stylesheet' href="{% static 'styles/footer.css'%}">
+    <link rel='stylesheet' href="{% static 'styles/about-anyth.css'%}">
+    <link rel='stylesheet' href="{% static 'styles/ind-message.css'%}">
+    <link rel='stylesheet' href="{% static 'styles/my-circle.css'%}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script src="https://kit.fontawesome.com/bda12985f7.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="{% static 'styles/home.js' %}"></script>
+    <script src="{% static 'styles/my-circle.js' %}"></script>
+    
+
+    <title>Anyth</title>
+</head>
+<body>
+    {% include 'navbar.html'%}
+
+    {% block content%}
+
+
+    {% endblock content %}
+
+    <!-- {% include 'footer.html'%} -->
+
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,149 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<div class="my-circle-main">
+    <div class="my-circle-row">
+        <div class="chat-left">
+            
+            <div class="header-left">
+                <h4>Circle</h4>
+                <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                
+            </div> 
+            <div class="chat-person-box">
+                <img src="{% static 'images/biebersmask.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Amit Bisht</h4>
+                    <p class="preview-text">I hope you're doing good</p>
+                </div>
+                <span class="chats-time">13:22</span>
+            </div >
+
+            <div class="chat-person-box">
+                <img src="{% static 'images/abstract.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Shardul Rawat</h4>
+                    <p class="preview-text">Theek h na?</p>
+                </div>
+                <span class="chats-time">09:32</span>
+            </div >
+
+            <div class="chat-person-box">
+                <img src="{% static 'images/cute_wallpaper.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Ranjit Singh</h4>
+                    <p class="preview-text">Okay bro, I'll see!</p>
+                </div>
+                <span class="chats-time">10:32</span>
+            </div >
+
+            <div class="chat-person-box">
+                <img src="{% static 'images/download_3.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Mansi</h4>
+                    <p class="preview-text">Bta denge, don't worry.</p>
+                </div>
+                <span class="chats-time">19:12</span>
+            </div > 
+
+            <div class="chat-person-box">
+                <img src="{% static 'images/Redsmin.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Ankit Joshi</h4>
+                    <p class="preview-text">Chl Krta hu kuch jugaad.</p>
+                </div>
+                <span class="chats-time">12:32</span>
+            </div >
+
+            <div class="chat-person-box">
+                <img src="{% static 'images/Harry_Styles_makes_history_in_ball_gown_as_first_solo_man_to_grace_Vogue_cover_ever.png' %}" class="profile-photo" alt="" srcset=""/>
+                <div class="chat-person-text">
+                    <h4 id="person-name">Rahul</h4>
+                    <p class="preview-text">Sb bddia, tu suna?</p>
+                </div>
+                <span class="chats-time">20:12</span>
+            </div > 
+
+
+            
+            <!-- <i class="fa-solid fa-magnifying-glass fa-xl"></i> -->
+        </div>
+
+
+        <!-- Center Layout -->
+        <div class="chat-center">
+            <div class="header-center">
+            <img src="{% static 'images/biebersmask.jpg' %}" class="profile-photo-center" alt="" srcset=""/>
+
+            <h4 class="current-chat-heading">Amit Bisht</h4>
+            <span></span>
+            </div>
+            <div class="chat-section">
+                <div class="chat-row">
+                <div class="chat-col">
+                    <div class="chat-bubble-left">
+                        Hey boi!
+                    </div>
+
+                    <div class="chat-bubble-left">
+                        Bta rha hu sudhr ja!
+                    </div>
+                </div>
+                </div>
+
+                <div class="chat-row-right">
+                <div class="chat-col-right">
+                    <div class="chat-bubble-right">
+                        Kya khra h?
+                    </div>
+
+                    <div class="chat-bubble-right">
+                        Dhng m rhe bhai.
+                    </div>
+
+                    <div class="chat-bubble-right">
+                        Zindagi hai tedi si
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="chat-row">
+                <div class="chat-col">
+                    <div class="chat-bubble-left">
+                        Hey boi!
+                    </div>
+
+                    <div class="chat-bubble-left">
+                        Bta rha hu sudhr ja!
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="row-chat-input"> 
+                    <img src="{% static 'images/Karolis_Inokaitis.jpg'%}" class="profile-photo-ta" alt="" srcset="">
+                    <i class="fa-solid fa-image fa-xl" id="send-img"></i>
+                    <textarea type="text" placeholder="Message" rows='1' class="message-input" autofocus></textarea>
+                    <i class="fa-solid fa-arrow-up" id="send-msg"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-right">
+            <div class="header-right">
+            <h4>Events</h4>
+            </div>
+            <div class="events-body">
+                <p> No Events to show currently</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'styles/my-circle.js' %}"></script>
+
+
+{% endblock content%}

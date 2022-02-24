@@ -1,0 +1,54 @@
+{% load static %}   
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no">
+    <link rel='stylesheet' href="{% static 'styles/login.css'%}">
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="split-screen">
+        <div class="left">
+            
+            <section class="copy">
+                <h1 class="login-logo"><a href="/">Anyth</a></h1>
+                <form method="post" action="">
+                    
+                  
+                    {% csrf_token %}
+                    <section class="copy">
+                        <h1>Login</h1>
+                        <p class="tagline-login">Explore much more cool stuffs on anyth!</p>
+                              
+                        {% for message in messages %}
+                              <h4 id="login_msg">Username and password wrong.</h4>
+                        {% endfor %}
+                        <div class="input-container name">
+                            <label for="username">Username</label>
+                            <input id="username" name="username" type="username" placeholder="Enter Username">
+                        </div>
+                        
+                        <div class="input-container password">
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" placeholder="Min. 8 Characters">
+                        </div>
+                        <h5 class="forgot-password"><a href="/">Forgot Password?</a></h5>
+                    </section>
+                    
+                    <button class="login-btn" type="submit">Login</button>
+                </form>
+                <hr>                
+                <a href="{% url 'create-account'%}"><button class="create-act-btn">Create New Account</button></a>
+            <span class="copyright-text">&copy;2022 Anyth. All Rights Reserved </span>
+        </div>
+        
+        <div class="right">            
+        </div>
+    </div>
+    
+</body>
+</html>

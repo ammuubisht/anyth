@@ -1,0 +1,144 @@
+{% extends 'main.html'%} {% load static %} {% load humanize %} {% block content %}
+<div class="container" id="global">
+  <div class="main-body">
+    <h1 class="greeting-msg">
+      Hey {{request.user.first_name}}, it's good to see you
+    </h1>
+  
+
+    <div class="input-col">
+      <form
+        action="/"
+        method="post"
+        enctype="multipart/form-data"
+        id="msg-post-form"
+      >
+        {% csrf_token %} {% if request.user.is_authenticated %}
+        <textarea
+          name="message"
+          id="share-post-ta"
+          cols="30"
+          rows="5"
+          maxlength="250"
+          placeholder="Wanna Share Anything?"
+          onkeyup="countChars(this);"
+          
+        >{{post_form.post_text}}</textarea>
+        <div id="image-holder"> </div>
+        <hr id="below-ta" />
+          
+
+        <div class="below-hr-container">
+          
+        <div class="actions-cont">
+          <label  class="add-image-label" tooltip="Image"
+            ><span class="add-image" tooltip="Image" >
+              <i class="fa-solid fa-image fa-xl" tooltip="Image"></i>
+              
+            </span>
+            {{post_form.image}}
+          </label>
+
+          <!-- <label class="add-feeling-label"><span class="add-feeling">
+            <i class="fa-solid fa-face-grin-beam fa-xl"></i>
+              
+            </span>
+          </label> -->
+          <p id="charNum">0/250</p>
+
+        </div>
+        <button type="submit" class="share-post-btn" id = "share-post-btn" >
+          Share
+        </button>
+        </div>
+      </form>
+
+      <!-- 
+      <button type="submit" class='post-btn'onclick="process()">Share</button> -->
+
+      {% else %}
+      <textarea
+        name="message"
+        id="message"
+        rows="1"
+        placeholder="Type anything..."
+        maxlength="350"
+        style="text-align: center; font-weight: 500"
+        disabled
+      >
+ Login to share anything </textarea
+      >
+
+      <button type="submit" onclick="process()" disabled>THROW!</button>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="all-msgs" id="blur">
+    <!-- <h1>See what others are throwing</h1> -->
+    <div class="container">
+      <div class="row" data-masonry='{"percentPosition": true}'>
+        {% for msgs in post_object %}
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="card">
+            <a href="{% url 'ind-message' msgs.pk%}">
+              <div class="card-body">
+                {% if msgs.image and msgs.message%}
+                <img src="{{msgs.image.url}}" /><br />
+                <div class="card-msg">
+                  {{ msgs.message|linebreaksbr|truncatechars:30 }}
+                  <span class="time-ago">{{ msgs.date_posted | naturaltime}}</span>
+                </div>
+                {% elif msgs.image %}
+                <img src="{{msgs.image.url}}" />
+                <div class="card-msg">
+                <span class="time-ago">{{ msgs.date_posted | naturaltime}}</span>
+                </div>
+                {% else %}
+                <div class="card-msg">{{ msgs.message |linebreaksbr }}
+
+                  
+                <span class="time-ago">{{ msgs.date_posted | naturaltime}}</span>
+                </div>
+                {% endif %}
+
+                
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'styles/home.js' %}"></script>
+<script
+  src="https://kit.fontawesome.com/bda12985f7.js"
+  crossorigin="anonymous"
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+<script>
+$("#addImage").on("change", function () {
+    if (typeof FileReader != "undefined") {
+      var image_holder = $('#image-holder');
+      image_holder.empty();
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("<img />", {
+          src: e.target.result,
+          class: "thumb-image",
+        }).appendTo(image_holder);
+      };
+      image_holder.show();
+      reader.readAsDataURL($(this)[0].files[0]);
+    } else {
+      alert("This browser does not support FileReader.");
+    }
+  }); 
+
+</script>
+
+{% endblock content %}

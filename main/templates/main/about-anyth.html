@@ -1,0 +1,14 @@
+{% extends 'main.html'%}
+{%load static%}
+
+{% block content %}
+
+<div id="countdown">
+  <div id="countdown-number"></div>
+  <svg>
+    <circle r="18" cx="20" cy="20"></circle>
+  </svg>
+</div>
+
+<script src="{% static 'styles/home.js' %}"></script>
+{% endblock content%}

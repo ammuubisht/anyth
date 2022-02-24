@@ -1,0 +1,106 @@
+{% extends 'main.html'%} {%load static%}{% load humanize %}{% block content %}
+
+<div class="msg-body">
+  <div class="msg-contents">
+    {% if message.image %}
+    <img src="{{message.image.url}}" />
+    <div class="msgs-right-content">
+      <h3 class="main-message" id="mainmessage">
+        {{message.message|linebreaksbr|urlizetrunc:40}}
+      </h3>
+      {% if message.message %}
+      <span class="copy-text-span" onclick="CopyToClipboard('mainmessage')">
+        <i class="fa-regular fa-copy fa-xl"></i
+      ></span>
+      {% endif %}
+      <p id="copied-text"></p>
+      <span class="date-posted"
+        >{{message.date_posted | naturaltime}}
+        </span
+      >
+      <hr id="below-date" />
+
+      <!-- <div class="like-share-cont" id="like-share-cont">
+        <span class="like-btn" 
+          ><a 
+            ><i class="fa-regular fa-heart fa-lg" id="like-icon" ></i></a
+          >
+      <span class="like-count" id="like-count"
+          >{{message.likes.all.count}}</span></span
+        >
+        <span><i class="fa fa-solid fa-share fa-lg"></i></span>
+      </div> -->
+
+      
+      <h4 class="response-h4">Responses</h4>
+
+      <div class="comments-div">
+        {% for comment in comments %}
+        <p class="comment-text">{{comment.body}}</p>
+        {% endfor %}
+      </div>
+      <form action="" method="post" id="comment-form">
+        {% csrf_token %} {{comment_form.body}}
+        <button
+          type="submit"
+          class="comment-btn"
+          id="like-btn"
+          value="{{message.id}}"
+        >
+          Respond
+        </button>
+      </form>
+      <!-- <span class="more-like-this"><a href="/">See more like this</a> </span> -->
+    </div>
+
+    {% else %}
+
+    <div class="msgs-right-content">
+      <h3 class="main-message">
+        {{message.message|linebreaksbr|urlizetrunc:40}} {% endif %}
+      </h3>
+    </div>
+  </div>
+
+  <!-- <h4 class="comments-heading">Comments</h4> -->
+</div>
+
+<div class="all-msgs" id="blur">
+  <h1>More like this</h1>
+  <div class="container">
+    <div class="row" data-masonry='{"percentPosition": true}'>
+      {% for msgs in post_object %}
+      <div class="col-lg-3 col-md-6 col-6">
+        <div class="card">
+          <a href="{% url 'ind-message' msgs.pk%}">
+            <div class="card-body">
+              {% if msgs.image %}
+              <img src="{{msgs.image.url}}" /><br />
+              <div class="card-msg">
+                {{ msgs.message|linebreaksbr|truncatechars:30 }}
+                <span class="time-ago">{{ msgs.date_posted | naturaltime}}</span>
+              </div>
+              {% else %}
+              <div class="card-msg">{{ msgs.message |linebreaksbr }}
+                <span class="time-ago">{{ msgs.date_posted | naturaltime}}</span>
+              </div>
+              
+              {% endif %}
+
+            
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script
+  src="https://kit.fontawesome.com/bda12985f7.js"
+  crossorigin="anonymous"
+></script>
+<script type="text/javascript" src="{% static 'styles/home.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% load static %}   
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'styles/create-account.css'%}">
+
+    <title>Create new account</title>
+</head>
+<body>
+    <div class="split-screen">
+        <div class="left">
+            <section class="copy">
+                <!-- <h1 class="login-logo"><a href="/">Anyth</a></h1> -->
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <section class="copy">
+                        <h1>Create an account.</h1>
+                        <p>Continue to start using anyth!</p>
+                        
+                        <div class="name_section">
+                            <div class="input-container f-name">
+                            <label for="name">First Name</label>
+                            
+                        <div class="input-group">
+                            {{form.first_name}}
+                        </div>
+                        </div>
+                        <div class="input-container l-name">
+                            <label for="name">Last Name</label>
+                            
+                        <div class="input-group">
+                            {{form.last_name}}
+                        </div>
+                        </div>
+                        </div>
+                        <div class="input-container name">
+                            <label for="name">Username</label>
+                            
+                        <div class="input-group">
+                            {{form.username}}
+                        </div>
+                        </div>
+                        <div class="input-container email">
+                            <label for="email">Email</label>
+                            <div class="input-group">
+                                {{form.email}}
+                            </div>                        
+                        </div>
+                        
+                        <div class="input-container password">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                {{form.password1}}
+                            </div>                        
+                        </div>
+
+                    </section>
+                    {{form.errors}}
+                    
+                    <button class="login-btn" type="submit">Create New Account</button>
+                </form>
+                <hr>               
+                <h5 class="already-user">Already a user?</h5>
+ 
+                <a href="{% url 'login'%}"><button class="create-act-btn">Login</button></a>
+                <span class="copyright-text">&copy;2022 Anyth. All Rights Reserved </span>
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder= 'First Name';
+        form_fields[2].placeholder= 'Last Name';
+        form_fields[3].placeholder= 'Username';
+        form_fields[4].placeholder= 'yourname@website.com';
+        form_fields[5].placeholder= 'Type Password';
+
+        for (var field in form_fields){
+            form_fields[field].className += ' form-control'
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+.footer-content{
+    min-height: 10vh;
+
+}
+
+.footer-content h3{
+    color: white;
+    float: right;
+}
