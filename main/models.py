@@ -1,8 +1,7 @@
-from email.policy import default
+
 from django.conf import settings
 from django.db import models
 from datetime import date, datetime 
-import uuid
 from django.contrib.auth.models import User
 
 
