@@ -1,12 +1,9 @@
-from email import message
-from pyexpat import model
+
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import JsonResponse, request, HttpResponseRedirect
 from django.urls import reverse
-from matplotlib import image
-from matplotlib.style import context
-from requests_toolbelt import user_agent
-from sympy import postfixes
+
+
 from . import models
 from .forms import CreateUserForm, PostForm, CommentForm
 from datetime import datetime, timedelta
