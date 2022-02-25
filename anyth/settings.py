@@ -33,6 +33,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'anyth-ap.herokuapp.com']
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -148,3 +150,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_COOKIE_AGE = 2629746
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
