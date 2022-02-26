@@ -7,7 +7,6 @@ from django.contrib.auth.models import User, AbstractUser
 
 import uuid
 
-from sympy import Abs
 
 
 # Create your models here.
