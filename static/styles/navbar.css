@@ -35,8 +35,12 @@ nav{
     width: 30%;
     display: flex;
     justify-content:flex-end;
+    margin-right: 10px;
 }
-
+#logout-icon{
+    margin: 0 5px;
+    background-color: transparent;
+}
 .nav-links li{
     list-style: none;
 }

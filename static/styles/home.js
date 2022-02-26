@@ -55,11 +55,11 @@ function countChars(obj) {
     document.getElementById("charNum").innerHTML = strLength + "/" + maxLength;
   }
 
-  // if (strLength==0){
-  //   btnPost.disabled = true;
-  // } else{
-  //   btnPost.disabled = false;
-  // }
+  if (strLength==0){
+    btnPost.disabled = true;
+  } else{
+    btnPost.disabled = false;
+  }
 }
 // Image Preview
 

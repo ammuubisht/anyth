@@ -9,4 +9,5 @@ from main.models import Like, Message, Comment
 admin.site.register(Message)
 admin.site.register(Like)
 admin.site.register(Comment)
+# admin.site.register(Person)
 

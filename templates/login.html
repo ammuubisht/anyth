@@ -25,7 +25,7 @@
                         <p class="tagline-login">Explore much more cool stuffs on anyth!</p>
                               
                         {% for message in messages %}
-                              <h4 id="login_msg">Username and password wrong.</h4>
+                              <h4 id="login_msg">{{message | title}}</h4>
                         {% endfor %}
                         <div class="input-container name">
                             <label for="username">Username</label>

@@ -13,6 +13,7 @@ class CreateUserForm(UserCreationForm):
     widget=forms.TextInput(attrs={'autofocus': True})
 )
     last_name = forms.CharField(max_length=50)
+    uniqueid = models.UUIDField(max_length=255, default=uuid.uuid4)
     class Meta:
         model = User
         fields = ["first_name", "last_name", 'username', 'email', 'password1']

@@ -82,7 +82,10 @@
 
 .all-msgs h1{
     color: #181818;
+    margin-top: 10vh;
+    font-size: 26px;
 }
+
 .msg-contents img{
     
     object-fit:cover;

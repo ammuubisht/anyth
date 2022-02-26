@@ -6,12 +6,12 @@
     </div>
 
     <ul class="nav-links">
-      <!-- <li><a href="{% url 'my-circle'%}">My Circle</a></li>
+      <!-- <li><a href="">My Circle</a></li>
       <li><a href="{% url 'about-anyth'%}">Life-Su</a></li>
       <li><a href="{% url 'about-anyth'%}"><i style="background-color: transparent;margin: 0 7px;" class="fa-solid fa-user fa-sm"></i>Profile</a></li> -->
       {% if request.user.is_authenticated %}
 
-      <li><a href="{% url 'logout'%}"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a></li>
+      <li><a href="{% url 'logout'%}"><i id="logout-icon" class="fa-solid fa-right-from-bracket "></i>Logout</a></li>
       {% else %}
       <li><a href="{% url 'login'%}">Login</a></li>
       {% endif %}

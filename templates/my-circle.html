@@ -11,59 +11,17 @@
                 <i class="fa-solid fa-pen-to-square fa-xl"></i>
                 
             </div> 
+            <!-- {% for friend in friends %}
             <div class="chat-person-box">
-                <img src="{% static 'images/biebersmask.jpg' %}" class="profile-photo" alt="" srcset=""/>
+                <img src="{{friend.profile_picture.url}}" class="profile-photo" alt="" srcset=""/>
                 <div class="chat-person-text">
-                    <h4 id="person-name">Amit Bisht</h4>
-                    <p class="preview-text">I hope you're doing good</p>
+                    <h4 id="person-name">{{friend.username}}</h4>
+                    <p class="preview-text">{{friend.email}}</p>
                 </div>
                 <span class="chats-time">13:22</span>
             </div >
 
-            <div class="chat-person-box">
-                <img src="{% static 'images/abstract.jpg' %}" class="profile-photo" alt="" srcset=""/>
-                <div class="chat-person-text">
-                    <h4 id="person-name">Shardul Rawat</h4>
-                    <p class="preview-text">Theek h na?</p>
-                </div>
-                <span class="chats-time">09:32</span>
-            </div >
-
-            <div class="chat-person-box">
-                <img src="{% static 'images/cute_wallpaper.jpg' %}" class="profile-photo" alt="" srcset=""/>
-                <div class="chat-person-text">
-                    <h4 id="person-name">Ranjit Singh</h4>
-                    <p class="preview-text">Okay bro, I'll see!</p>
-                </div>
-                <span class="chats-time">10:32</span>
-            </div >
-
-            <div class="chat-person-box">
-                <img src="{% static 'images/download_3.jpg' %}" class="profile-photo" alt="" srcset=""/>
-                <div class="chat-person-text">
-                    <h4 id="person-name">Mansi</h4>
-                    <p class="preview-text">Bta denge, don't worry.</p>
-                </div>
-                <span class="chats-time">19:12</span>
-            </div > 
-
-            <div class="chat-person-box">
-                <img src="{% static 'images/Redsmin.jpg' %}" class="profile-photo" alt="" srcset=""/>
-                <div class="chat-person-text">
-                    <h4 id="person-name">Ankit Joshi</h4>
-                    <p class="preview-text">Chl Krta hu kuch jugaad.</p>
-                </div>
-                <span class="chats-time">12:32</span>
-            </div >
-
-            <div class="chat-person-box">
-                <img src="{% static 'images/Harry_Styles_makes_history_in_ball_gown_as_first_solo_man_to_grace_Vogue_cover_ever.png' %}" class="profile-photo" alt="" srcset=""/>
-                <div class="chat-person-text">
-                    <h4 id="person-name">Rahul</h4>
-                    <p class="preview-text">Sb bddia, tu suna?</p>
-                </div>
-                <span class="chats-time">20:12</span>
-            </div > 
+            {% endfor %} -->
 
 
             

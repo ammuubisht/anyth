@@ -13,7 +13,8 @@ urlpatterns = [
     path('logout', views.Logout, name='logout'),
     path('create-account', views.CreateAccount, name='create-account'),
     path('ind-message/<int:pk>/', views.SingleMessage, name='ind-message'),
-    path('my-circle', views.MyCircle, name='my-circle'),
+    # path('my-circle', views.MyCircle, name='my-circle'),
+    # path('my-circle/<str:username>', views.MyCircleChats, name='my-circle-chats'),
 
 
     

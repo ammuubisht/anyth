@@ -31,7 +31,8 @@ def Home(request):
             pf.save()
         else:
             print(post_form.errors.as_data())
-            # Getting the current instance object to display in the template
+        
+           # Getting the current instance object to display in the template
         return HttpResponseRedirect("/")
 
     else:
@@ -80,9 +81,16 @@ def Login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                
+                # if user in models.Person.objects.all():
+                #     pass
+                # else:
+                #     models.Person.objects.create(user=request.user)
+                
                 return redirect('Home')
             else:
                 messages.info(request, 'username or password does not match')
+                return HttpResponseRedirect('login.html')
         context = {}
         return render(request, 'login.html', context)
 
@@ -99,9 +107,13 @@ def CreateAccount(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                user = form.cleaned_data.get('username')
+                username = form.cleaned_data.get('username')
+                fname = form.cleaned_data.get('first_name')
+                lname = form.cleaned_data.get('last_name')
+                email = form.cleaned_data.get('email')
+                password = form.cleaned_data.get('password1')
                 messages.success(
-                    request, 'Account successfully created for ' + user)
+                    request, 'Account successfully created for ' + username)
                 return redirect('login')
 
         context = {'form': form}
@@ -168,5 +180,13 @@ def Logout(request):
     return redirect('login')
 
 
-def MyCircle(request):
-    return render(request, 'my-circle.html')
+# def MyCircle(request):
+#     # current_user = models.Person.objects.get(user=request.user)
+#     # friends = models.Person._meta.get_field('friends')
+    
+#     # print("Current User: ", current_user)
+#     # print("Friends: ", friends)
+#     return render(request, 'my-circle.html')
+
+# def MyCircleChats(request, username):
+#     return render(request, 'my-circle.html', {'username':username})

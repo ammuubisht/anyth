@@ -28,7 +28,7 @@ with open(BASE_DIR / 'secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'anyth-ap.herokuapp.com']
 
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     'main.apps.MainConfig',
     'django.contrib.humanize',
+    'channels',
+
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'anyth.wsgi.application'
-
+ASGI_APPLICATION = 'anyth.asgi.application'
 
 
 # Database
@@ -132,6 +134,8 @@ USE_THOUSAND_SEPARATOR = True
 
 THOUSAND_SEPARATOR = ','
 
+# AUTH_USER_MODEL = 'main.Person'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -151,5 +155,3 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_COOKIE_AGE = 2629746
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False

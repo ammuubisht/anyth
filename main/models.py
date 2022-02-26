@@ -1,8 +1,13 @@
 
+
 from django.conf import settings
 from django.db import models
 from datetime import date, datetime 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
+
+import uuid
+
+from sympy import Abs
 
 
 # Create your models here.
@@ -18,7 +23,7 @@ class Message(models.Model):
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.message
+        return (self.message+ ' - ' + self.username )
 
     @property
     def num_likes(self):
@@ -26,7 +31,6 @@ class Message(models.Model):
 
 
 class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
 
 
@@ -45,3 +49,12 @@ class Comment(models.Model):
     def __str__(self):
         return self.body
 
+
+# class Person(models.Model):
+#     uniqueid = models.UUIDField(max_length=255, default=uuid.uuid4)
+#     profile_picture = models.ImageField(blank=True, null=True)
+#     friends = models.ManyToManyField("self",default=None, related_name='friends', blank=True)
+
+#     def __str__(self):
+#         return self.user.username
+    

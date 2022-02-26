@@ -117,9 +117,10 @@ form input[type="password"]{
 }
 
 
+
 #login_msg{
-    background-color: #ffb4b4;
-    border: 0.5px solid #ff2121;
+    background-color: #e6e6e6;
+    border: 0.5px solid #c2c2c2;
     color: #181818;
     padding: 14px 17px;
     font-weight: 300;
